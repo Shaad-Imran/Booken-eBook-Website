@@ -780,6 +780,27 @@ body {
   margin-inline: auto;
 }
 
+/* Back To Top ....  */
+.back-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  background: var(--maximum-blue-green);
+  font-size: 20px;
+  padding: 10px;
+  border-radius: var(--radius-circle);
+  transition: var(--transition-1);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 3;
+}
+
+.back-top-btn.active {
+  transform: translateY(10px);
+  opacity: 1;
+  visibility: visible;
+}
+
 /* ... Media Queries ...  */
 @media (min-width: 575px) {
   .container {
@@ -1141,5 +1162,12 @@ body {
 
   .popular .has-scrollbar {
     padding-block-end: 50px;
+  }
+
+  .back-top-btn {
+    bottom: 70px;
+    right: 30px;
+    font-size: 25px;
+    padding: 15px;
   }
 }
