@@ -204,6 +204,11 @@ body {
   z-index: -1;
 }
 
+.grid-list {
+  display: grid;
+  gap: 20px;
+}
+
 /* Header ...  */
 .header-top :is(.input-wrapper, .header-action-btn:last-child),
 .header-contact-link {
@@ -384,12 +389,71 @@ body {
   margin-inline: auto;
 }
 
+/* Features ...  */
+.feature {
+  padding-block: 0;
+}
+
+.feature-card {
+  background-color: var(--oxford-blue);
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.feature-card .card-icon {
+  width: 60px;
+  flex-shrink: 0;
+}
+
+.feature-card:hover .card-icon {
+  animation: shake-lr 0.5s var(--cubic-anim) both;
+}
+
+@keyframes shake-lr {
+  0%,
+  100% {
+    transform: rotate(0);
+    transform-origin: 50% 50%;
+  }
+
+  10%,
+  90% {
+    transform: rotate(4deg);
+  }
+
+  20%,
+  40%,
+  60% {
+    transform: rotate(-6deg);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: rotate(6deg);
+  }
+
+  80% {
+    transform: rotate(-4deg);
+  }
+}
+
+.feature-card .card-title {
+  margin-block-end: 5px;
+}
+
 /* ... Media Queries ...  */
 @media (min-width: 575px) {
   .container {
     max-width: 540px;
     width: 100%;
     margin-inline: auto;
+  }
+
+  .grid-list {
+    grid-template-columns: 1fr 1fr;
   }
 
   .hero .play-btn {
@@ -439,6 +503,10 @@ body {
     grid-template-columns: 1fr 0.7fr;
     align-items: center;
   }
+
+  .featured .grid-list {
+    gap: 30px;
+  }
 }
 
 @media (min-width: 992px) {
@@ -453,6 +521,10 @@ body {
 
   .btn {
     --fs-7: 1.6rem;
+  }
+
+  .grid-list {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .nav-close-btn,
@@ -556,6 +628,14 @@ body {
   .hero-banner {
     max-width: unset;
   }
+
+  .feature .grid-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .feature-card .card-title {
+    --fs-6: 1.8rem;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -565,6 +645,10 @@ body {
 
   .container {
     max-width: 1200px;
+  }
+
+  .grid-list {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .input-wrapper {
@@ -577,5 +661,13 @@ body {
 
   .hero-text {
     font-size: var(--fs-5);
+  }
+
+  .feature .grid-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .feature-card {
+    height: 100%;
   }
 }
